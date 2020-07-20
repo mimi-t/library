@@ -1,3 +1,7 @@
+/*
+trigger error if add empty field
+clear field after add new book
+*/
 let myLibrary = [];
 
 const Book = function(title, author, pages, read) {
