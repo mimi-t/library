@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="styles.css">
@@ -12,14 +11,17 @@
         <header class="header">
             <h1>My Books</h1>
         </header>
-        <main class="library-wrapper">
-            <div class="book">
-                <div class="title"><h2>Book title</h2></div>
-                <div class="author"><h3>Author name</h3></div>
-                <div class="pages"><p>666 pages</p></div>
-                <div class="button-bar">
-                    <button class="read already-read">Already read</button>
-                    <button class="bin-icon">...</button>    
+        <main>
+            <button id="add-book">Add new book</button>
+            <div class="library-wrapper">
+                <div class="book">
+                    <div class="title"><h2>Book title</h2></div>
+                    <div class="author"><h3>Author name</h3></div>
+                    <div class="pages"><p>666 pages</p></div>
+                    <div class="button-bar">
+                        <button class="already-read">Already read</button>
+                        <button class="bin-button"><img src="images/trash.svg" alt="bin icon"></button>
+                    </div>
                 </div>
             </div>
         </main>

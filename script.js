@@ -2,7 +2,35 @@
 trigger error if add empty field
 clear field after add new book
 */
-let myLibrary = [];
+
+//------------------------------ sample objects for development, delete later ------------------------------
+book1 = {title: 'Six of Crows',
+author: 'Leigh Bardugo',
+pages: '465',
+read: true
+}
+
+book2 = {title:'Manufacturing Consent: The Political Economy of the Mass Media',
+author: ' Edward S. Herman, Noam Chomsky',
+pages: '412',
+read: false
+}
+
+book3 = {title:'No Longer Human',
+author: 'Osamu Dazai',
+pages: '176',
+read: false
+}
+
+book4 = {title:'Maybe You Should Talk to Someone: A Therapist, Her Therapist, and Our Lives Revealed',
+author: 'Lori Gottlieb',
+pages: '415',
+read: true
+}
+//----------------------------------------------delete later-------------------------------------------------
+
+const libraryArray = [book1, book2, book3, book4];
+const libraryWrapper_div = document.querySelector('.library-wrapper');
 
 const Book = function(title, author, pages, read) {
     this.title = title;
@@ -14,7 +42,25 @@ const Book = function(title, author, pages, read) {
     }
 }
 
+//loops through libraryArray, formats info of each book, add into HTML
+const render = () => {
+    libraryArray.forEach((book) => {
+        let book_div = document.createElement('div');
+        book_div.className = 'book'
+        book_div.innerHTML = `<div class="title"><h2>${book.title}</h2></div>
+        <div class="author"><h3>${book.author}</h3></div>
+        <div class="pages"><p>${book.pages} pages</p></div>
+        <div class="button-bar">
+            <button class="${book.read ? 'already-read' : 'to-read'}">${book.read ? 'Already read' : 'To read'}</button>
+            <button class="bin-button"><img src="images/trash.svg" alt="bin icon"></button>
+        </div>`;
+        libraryWrapper_div.appendChild(book_div);
+    });
+}
+
 const addBookToLibrary = function() {
     // do stuff here
-  }
+}
+
+render();
   
