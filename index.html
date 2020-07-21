@@ -12,7 +12,32 @@
             <h1>My Books</h1>
         </header>
         <main>
-            <button id="add-book">Add new book</button>
+            <button id="toggle-form" class="add-button">Add new book</button>
+            <div id="add-form" class="hidden">
+                <form class="form-container">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" required>
+
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" name="author" required>
+
+                    <label for="pages" class="form-label">Pages</label>
+                    <input type="text" name="pages" required>
+
+                    <div class="form-label">Have you read it?</div>
+                    <div class="radio-list">
+                        <div class="radio-choice">
+                            <input type="radio" name="read-status" value="already-read" required>
+                            <label for="yes">Yes</label>
+                        </div>
+                        <div class="radio-choice">
+                            <input type="radio" name="read-status" value="to-read" required>
+                            <label for="no">No</label>
+                        </div>
+                    </div>
+                    <button type="submit">Add book</button>
+                </form>
+            </div>
             <div class="library-wrapper">
                 <div class="book">
                     <div class="title"><h2>Book title</h2></div>

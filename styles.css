@@ -1,6 +1,6 @@
 /*
-red-orange  #EF5B5B
-sea green #20A39E
+red-orange  #EE4D3C
+sea green #159D98
 */
 body {
     background: #F9FBF2;
@@ -23,7 +23,6 @@ body {
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 480px);
-    grid-template-rows: repeat(auto-fit);
     grid-gap: 20px;
     justify-content: center;
 }
@@ -79,15 +78,15 @@ button:hover {
 }
 
 .already-read {
-    background-color: #20A39E;
+    background-color: #159D98;
 }
 
 .to-read {
-    background-color: #EF5B5B;
+    background-color: #EE4D3C;
 }
 
 .bin-button {
-    background-color: #EF5B5B;
+    background-color: #EE4D3C;
     padding: 0px 10px;
 }
 
@@ -97,12 +96,71 @@ button:hover {
     vertical-align: middle;
 }
 
-#add-book {
+#toggle-form {
     display: flex;
     justify-content: center;
     margin: 30px auto;
     padding: 10px 20px;
+    font-size: 30px;
+}
+
+.add-button {
     background: #FFC86E;
     color: #23001E;
-    font-size: 30px;
+}
+
+.close-button {
+    background: #EE4D3C;
+    color: #fff;
+}
+
+.hidden { 
+    display: none;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 30px 30px;
+    background: #FFC86E;
+    border: 3px solid #23001E;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.form-container input {
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: 3px solid #23001E;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.form-container button {
+    display: block;
+    margin: 10px 0px;
+    padding: 10px 20px;
+    background: #159D98;
+    border: 3px solid #23001E;
+    border-radius: 10px;
+    font-size: 26px;
+}
+
+.form-label {
+    margin: 10px 0px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.form-container .radio-list {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.radio-choice {
+    padding-right: 20px;
 }

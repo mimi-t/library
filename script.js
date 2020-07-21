@@ -28,9 +28,10 @@ pages: '415',
 read: true
 }
 //----------------------------------------------delete later-------------------------------------------------
-
-const libraryArray = [book1, book2, book3, book4];
+const toggleForm_button = document.querySelector('#toggle-form');
+const addForm_form = document.querySelector('#add-form')
 const libraryWrapper_div = document.querySelector('.library-wrapper');
+const libraryArray = [book1, book2, book3, book4];
 
 const Book = function(title, author, pages, read) {
     this.title = title;
@@ -58,6 +59,19 @@ const render = () => {
     });
 }
 
+//toggle add new book form
+toggleForm_button.addEventListener('click', (e) => {
+    addForm_form.classList.toggle('hidden');
+    if (toggleForm_button.className == 'add-button') {
+        toggleForm_button.className = 'close-button';
+        toggleForm_button.innerHTML = 'Close form';
+    } else {
+        toggleForm_button.className = 'add-button';
+        toggleForm_button.innerHTML = 'Add new book';
+    }
+})
+
+//
 const addBookToLibrary = function() {
     // do stuff here
 }
