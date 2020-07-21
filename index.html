@@ -13,8 +13,8 @@
         </header>
         <main>
             <button id="toggle-form" class="add-button">Add new book</button>
-            <div id="add-form" class="hidden">
-                <form class="form-container">
+            <div id="add-form-wrapper" class="hidden">
+                <form class="form-container" id="add-book">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" name="title" required>
 
@@ -35,7 +35,7 @@
                             <label for="no">No</label>
                         </div>
                     </div>
-                    <button type="submit">Add book</button>
+                    <button type="submit" id="submit-form">Add book</button>
                 </form>
             </div>
             <div class="library-wrapper">

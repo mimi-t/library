@@ -1,5 +1,7 @@
 /*
-trigger error if add empty field
+this.prototype.info = function () {
+    return `${this.title} by ${this.author}, ${this.pages}, ${this.read ? 'already read' : 'not read yet'}`    
+}
 clear field after add new book
 */
 
@@ -28,23 +30,29 @@ pages: '415',
 read: true
 }
 //----------------------------------------------delete later-------------------------------------------------
+const addBook_form = document.querySelector('#add-book');
+const submitForm_button = document.querySelector('#submit-form');
 const toggleForm_button = document.querySelector('#toggle-form');
-const addForm_form = document.querySelector('#add-form')
+const addFormWrapper_div = document.querySelector('#add-form-wrapper')
 const libraryWrapper_div = document.querySelector('.library-wrapper');
 const libraryArray = [book1, book2, book3, book4];
 
+//book constructor
 const Book = function(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.prototype.info = function () {
-        return `${this.title} by ${this.author}, ${this.pages}, ${this.read ? 'already read' : 'not read yet'}`    
-    }
+}
+
+//clear library wrapper inner HTML
+const clearLibraryWrapper = () => {
+    libraryWrapper_div.innerHTML = "";
 }
 
 //loops through libraryArray, formats info of each book, add into HTML
 const render = () => {
+    clearLibraryWrapper();
     libraryArray.forEach((book) => {
         let book_div = document.createElement('div');
         book_div.className = 'book'
@@ -61,7 +69,7 @@ const render = () => {
 
 //toggle add new book form
 toggleForm_button.addEventListener('click', (e) => {
-    addForm_form.classList.toggle('hidden');
+    addFormWrapper_div.classList.toggle('hidden');
     if (toggleForm_button.className == 'add-button') {
         toggleForm_button.className = 'close-button';
         toggleForm_button.innerHTML = 'Close form';
@@ -71,10 +79,17 @@ toggleForm_button.addEventListener('click', (e) => {
     }
 })
 
-//
-const addBookToLibrary = function() {
-    // do stuff here
+//adds a book to the library
+const addBookToLibrary = function(form) {
+    let readStatus = form['read-status'].value === "already-read" ? true : false;
+    libraryArray.push(new Book(form.title.value, form.author.value, form.pages.value, readStatus));
 }
+
+submitForm_button.addEventListener('click', (e) => {
+    event.preventDefault();
+    addBookToLibrary(addBook_form.elements);
+    render();
+});
 
 render();
   
