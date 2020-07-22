@@ -1,11 +1,4 @@
-/*
-this.prototype.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages}, ${this.read ? 'already read' : 'not read yet'}`    
-}
-clear field after add new book
-*/
-
-//------------------------------ sample objects for development, delete later ------------------------------
+//------------------------------ sample objects for development-----------------------------------------
 book1 = {title: 'Six of Crows',
 author: 'Leigh Bardugo',
 pages: '465',
@@ -29,17 +22,11 @@ author: 'Lori Gottlieb',
 pages: '415',
 read: true
 }
-//----------------------------------------------delete later-------------------------------------------------
-
-/*
---------------------------------------------------
-RUNS BEFORE TO FILL PAGE WITH CONTENT
---------------------------------------------------
-*/
+//------------------------------------------------------------------------------------------------------
 
 const addBook_form = document.querySelector('#add-book');
-const submitForm_button = document.querySelector('#submit-form');
 const toggleForm_button = document.querySelector('#toggle-form');
+const formContainer_div = document.querySelector('.form-container')
 const addFormWrapper_div = document.querySelector('#add-form-wrapper');
 const libraryWrapper_div = document.querySelector('.library-wrapper');
 const libraryArray = [book1, book2, book3, book4];
@@ -60,6 +47,10 @@ const clearLibraryWrapper = () => {
 const removeBook = (index) => {
     //delete book from libraryArray at that index, render updated array
     libraryArray.splice(index, 1);
+}
+
+const changeReadStatus = (index) => {
+    libraryArray[index].read = !libraryArray[index].read;
 }
 
 //loops through libraryArray, formats info of each book, add into HTML
@@ -84,6 +75,13 @@ const render = () => {
             removeBook(index);
             render();
         })
+
+        //adds event listenter for changing read status
+        book_div.querySelector('.read-button').addEventListener('click', (e) => {
+            let index = e.currentTarget.parentNode.parentNode.dataset.index;
+            changeReadStatus(index);
+            render();
+        })
     });
 }
 
@@ -106,7 +104,7 @@ const addBookToLibrary = function(form) {
 }
 
 //triggers when 'add book' button is clicked (adds book to libraryArray and updates HTML)
-submitForm_button.addEventListener('click', (e) => {
+formContainer_div.addEventListener('submit', (e) => {
     event.preventDefault();
     addBookToLibrary(addBook_form.elements);
     render();
