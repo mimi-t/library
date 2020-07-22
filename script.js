@@ -108,6 +108,7 @@ formContainer_div.addEventListener('submit', (e) => {
     event.preventDefault();
     addBookToLibrary(addBook_form.elements);
     render();
+    formContainer_div.reset();
 });
 
 render();  
