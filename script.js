@@ -32,11 +32,13 @@ const libraryWrapper_div = document.querySelector('.library-wrapper');
 const libraryArray = [book1, book2, book3, book4];
 
 //book constructor
-const Book = function(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+const Book = class {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 //clear library wrapper's contents
